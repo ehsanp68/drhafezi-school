@@ -1,0 +1,63 @@
+baseURL = "https://drhafezi-school.ir/"
+languageCode = "fa"
+title = "دبستان دکتر حافظی"
+theme = "PaperMod"
+
+defaultContentLanguage = "fa"
+
+[languages]
+  [languages.fa]
+    languageName = "فارسی"
+    weight = 1
+    languageDirection = "rtl"
+
+[params]
+  env = "production"
+  title = "دبستان دکتر حافظی"
+  description = "وب‌سایت رسمی دبستان دکتر حافظی"
+  author = "مدیریت مدرسه"
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = false
+  ShowToc = false
+
+  [params.homeInfoParams]
+    Title = "به دبستان دکتر حافظی خوش آمدید"
+    Content = "مرکز آموزش و پرورش نسل آینده"
+
+[[menu.main]]
+  identifier = "home"
+  name = "خانه"
+  url = "/"
+  weight = 5
+
+[[menu.main]]
+  identifier = "about"
+  name = "درباره ما"
+  url = "/about/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "news"
+  name = "اخبار"
+  url = "/news/"
+  weight = 15
+
+[[menu.main]]
+  identifier = "gallery"
+  name = "گالری"
+  url = "/gallery/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "contact"
+  name = "تماس با ما"
+  url = "/contact/"
+  weight = 25
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
