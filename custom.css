@@ -1,0 +1,20 @@
+/* Import Vazirmatn Font */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+
+/* Apply font to entire site */
+body {
+  font-family: 'Vazirmatn', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Vazirmatn', sans-serif !important;
+  font-weight: 700;
+}
+
+/* Improve Persian text rendering */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+EOF
