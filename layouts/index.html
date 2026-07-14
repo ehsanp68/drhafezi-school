@@ -2,24 +2,42 @@
 
 <!-- Hero Slider -->
 <section class="hero-slider">
-  <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1400" alt="مدرسه" class="slider-image">
-  <div class="slider-overlay">
-    <h1 class="slider-title">برگزاری دوره مدیریت تعارض</h1>
+  <div class="slider-container">
+    <div class="slide active">
+      <img src="/images/slider/slide1.png" alt="اسلاید ۱">
+    </div>
+    <div class="slide">
+      <img src="/images/slider/slide2.png" alt="اسلاید ۲">
+    </div>
+    <div class="slide">
+      <img src="/images/slider/slide3.png" alt="اسلاید ۳">
+    </div>
+    <div class="slide">
+      <img src="/images/slider/slide4.png" alt="اسلاید ۴">
+    </div>
   </div>
+  
+  <div class="slider-overlay">
+    <h1 class="slider-title" id="slider-title">عنوان اسلاید</h1>
+  </div>
+  
+  <button class="slider-arrow prev" onclick="changeSlide(-1)">❯</button>
+  <button class="slider-arrow next" onclick="changeSlide(1)">❮</button>
+  
   <div class="slider-dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
+    <button class="dot active" onclick="goToSlide(0)"></button>
+    <button class="dot" onclick="goToSlide(1)"></button>
+    <button class="dot" onclick="goToSlide(2)"></button>
+    <button class="dot" onclick="goToSlide(3)"></button>
   </div>
 </section>
 
 <!-- News Ticker -->
 <div class="news-ticker">
-  <span class="ticker-label"> اخبار فوری</span>
+  <span class="ticker-label">📢 اخبار فوری</span>
   <div class="ticker-content">
     <span class="ticker-text">
-      🎉 مراسم تودیع و معارفه اعضای هیئت‌مدیره شرکت چایک تجارت با حضور مدیرعامل محترم &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      🎉 مراسم تودیع و معارفه اعضای هیئت‌مدیره با حضور مدیرعامل محترم &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       📚 ثبت‌نام کلاس‌های فوق‌برنامه نیم‌سال دوم آغاز شد &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       🏆 کسب رتبه اول المپیاد ریاضی توسط دانش‌آموزان پایه ششم
     </span>
@@ -59,5 +77,42 @@
     </div>
   </div>
 </section>
+
+<!-- Slider JavaScript -->
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+const titles = [
+  'به دبستان پسرانه دکتر حافظی خوش آمدید',
+  'کادری مجرب و متعهد در خدمت آموزش',
+  'محیطی شاد و پویا برای یادگیری',
+  'ثبت‌نام سال تحصیلی جدید آغاز شد'
+];
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove('active'));
+  dots.forEach(dot => dot.classList.remove('active'));
+  
+  currentSlide = (index + slides.length) % slides.length;
+  
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+  document.getElementById('slider-title').textContent = titles[currentSlide];
+}
+
+function changeSlide(direction) {
+  showSlide(currentSlide + direction);
+}
+
+function goToSlide(index) {
+  showSlide(index);
+}
+
+// Auto-play every 5 seconds
+setInterval(() => {
+  changeSlide(1);
+}, 5000);
+</script>
 
 {{ end }}

@@ -40,7 +40,7 @@ body {
 a { text-decoration: none; color: inherit; }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -174,7 +174,6 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
 }
 
-/* Search Bar */
 .search-bar {
   background: rgba(255,255,255,0.1);
   border-radius: 2rem;
@@ -509,3 +508,5 @@ a { text-decoration: none; color: inherit; }
     font-size: 1.5rem;
   }
 }
+EOF
+exit
