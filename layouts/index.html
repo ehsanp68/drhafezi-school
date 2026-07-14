@@ -18,7 +18,7 @@
   </div>
   
   <div class="slider-overlay">
-    <h1 class="slider-title" id="slider-title">عنوان اسلاید</h1>
+    <h1 class="slider-title" id="slider-title">به دبستان پسرانه دکتر حافظی خوش آمدید</h1>
   </div>
   
   <button class="slider-arrow prev" onclick="changeSlide(-1)">❯</button>
@@ -78,41 +78,43 @@
   </div>
 </section>
 
-<!-- Slider JavaScript -->
+<!-- Slider JavaScript - Load after page -->
 <script>
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-const titles = [
-  'به دبستان پسرانه دکتر حافظی خوش آمدید',
-  'کادری مجرب و متعهد در خدمت آموزش',
-  'محیطی شاد و پویا برای یادگیری',
-  'ثبت‌نام سال تحصیلی جدید آغاز شد'
-];
+document.addEventListener('DOMContentLoaded', function() {
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  const titles = [
+    'به دبستان پسرانه دکتر حافظی خوش آمدید',
+    'کادری مجرب و متعهد در خدمت آموزش',
+    'محیطی شاد و پویا برای یادگیری',
+    'ثبت‌نام سال تحصیلی جدید آغاز شد'
+  ];
 
-function showSlide(index) {
-  slides.forEach(slide => slide.classList.remove('active'));
-  dots.forEach(dot => dot.classList.remove('active'));
-  
-  currentSlide = (index + slides.length) % slides.length;
-  
-  slides[currentSlide].classList.add('active');
-  dots[currentSlide].classList.add('active');
-  document.getElementById('slider-title').textContent = titles[currentSlide];
-}
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    currentSlide = (index + slides.length) % slides.length;
+    
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+    document.getElementById('slider-title').textContent = titles[currentSlide];
+  }
 
-function changeSlide(direction) {
-  showSlide(currentSlide + direction);
-}
+  window.changeSlide = function(direction) {
+    showSlide(currentSlide + direction);
+  }
 
-function goToSlide(index) {
-  showSlide(index);
-}
+  window.goToSlide = function(index) {
+    showSlide(index);
+  }
 
-// Auto-play every 5 seconds
-setInterval(() => {
-  changeSlide(1);
-}, 5000);
+  // Auto-play every 5 seconds
+  setInterval(() => {
+    changeSlide(1);
+  }, 5000);
+});
 </script>
 
 {{ end }}
