@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <!-- Hero Slider -->
-<section class="hero-slider">
+<section class="hero-slider" id="heroSlider">
   <div class="slider-container">
     <div class="slide active">
       <img src="/images/slider/slide1.png" alt="اسلاید ۱">
@@ -18,17 +18,17 @@
   </div>
   
   <div class="slider-overlay">
-    <h1 class="slider-title" id="slider-title">به دبستان پسرانه دکتر حافظی خوش آمدید</h1>
+    <h1 class="slider-title" id="sliderTitle">به دبستان پسرانه دکتر حافظی خوش آمدید</h1>
   </div>
   
-  <button class="slider-arrow prev" onclick="changeSlide(-1)">❯</button>
-  <button class="slider-arrow next" onclick="changeSlide(1)">❮</button>
+  <button class="slider-arrow prev" id="prevBtn">❯</button>
+  <button class="slider-arrow next" id="nextBtn">❮</button>
   
   <div class="slider-dots">
-    <button class="dot active" onclick="goToSlide(0)"></button>
-    <button class="dot" onclick="goToSlide(1)"></button>
-    <button class="dot" onclick="goToSlide(2)"></button>
-    <button class="dot" onclick="goToSlide(3)"></button>
+    <button class="dot active" data-slide="0"></button>
+    <button class="dot" data-slide="1"></button>
+    <button class="dot" data-slide="2"></button>
+    <button class="dot" data-slide="3"></button>
   </div>
 </section>
 
@@ -37,7 +37,7 @@
   <span class="ticker-label">📢 اخبار فوری</span>
   <div class="ticker-content">
     <span class="ticker-text">
-      🎉 مراسم تودیع و معارفه اعضای هیئت‌مدیره با حضور مدیرعامل محترم &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+       مراسم تودیع و معارفه اعضای هیئت‌مدیره با حضور مدیرعامل محترم &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       📚 ثبت‌نام کلاس‌های فوق‌برنامه نیم‌سال دوم آغاز شد &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       🏆 کسب رتبه اول المپیاد ریاضی توسط دانش‌آموزان پایه ششم
     </span>
@@ -78,43 +78,104 @@
   </div>
 </section>
 
-<!-- Slider JavaScript - Load after page -->
+<!-- Slider Script -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  let currentSlide = 0;
-  const slides = document.querySelectorAll('.slide');
-  const dots = document.querySelectorAll('.dot');
-  const titles = [
-    'به دبستان پسرانه دکتر حافظی خوش آمدید',
-    'کادری مجرب و متعهد در خدمت آموزش',
-    'محیطی شاد و پویا برای یادگیری',
-    'ثبت‌نام سال تحصیلی جدید آغاز شد'
-  ];
-
-  function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
+(function() {
+  'use strict';
+  
+  // Wait for DOM to be fully loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSlider);
+  } else {
+    initSlider();
+  }
+  
+  function initSlider() {
+    var slider = document.getElementById('heroSlider');
+    if (!slider) {
+      console.error('Slider not found!');
+      return;
+    }
     
-    currentSlide = (index + slides.length) % slides.length;
+    var slides = slider.querySelectorAll('.slide');
+    var dots = slider.querySelectorAll('.dot');
+    var prevBtn = document.getElementById('prevBtn');
+    var nextBtn = document.getElementById('nextBtn');
+    var titleEl = document.getElementById('sliderTitle');
     
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
-    document.getElementById('slider-title').textContent = titles[currentSlide];
+    if (slides.length === 0) {
+      console.error('No slides found!');
+      return;
+    }
+    
+    var currentSlide = 0;
+    var titles = [
+      'به دبستان پسرانه دکتر حافظی خوش آمدید',
+      'کادری مجرب و متعهد در خدمت آموزش',
+      'محیطی شاد و پویا برای یادگیری',
+      'ثبت‌نام سال تحصیلی جدید آغاز شد'
+    ];
+    
+    function showSlide(index) {
+      // Remove active from all
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('active');
+        dots[i].classList.remove('active');
+      }
+      
+      // Calculate correct index
+      currentSlide = (index + slides.length) % slides.length;
+      
+      // Add active to current
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+      
+      // Update title
+      if (titleEl && titles[currentSlide]) {
+        titleEl.textContent = titles[currentSlide];
+      }
+      
+      console.log('Showing slide:', currentSlide + 1);
+    }
+    
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+    
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+    
+    // Event listeners
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        nextSlide();
+      });
+    }
+    
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        prevSlide();
+      });
+    }
+    
+    for (var i = 0; i < dots.length; i++) {
+      (function(index) {
+        dots[index].addEventListener('click', function(e) {
+          e.preventDefault();
+          showSlide(index);
+        });
+      })(i);
+    }
+    
+    // Auto-play
+    setInterval(nextSlide, 5000);
+    
+    console.log('Slider initialized with', slides.length, 'slides');
   }
-
-  window.changeSlide = function(direction) {
-    showSlide(currentSlide + direction);
-  }
-
-  window.goToSlide = function(index) {
-    showSlide(index);
-  }
-
-  // Auto-play every 5 seconds
-  setInterval(() => {
-    changeSlide(1);
-  }, 5000);
-});
+})();
 </script>
 
 {{ end }}
