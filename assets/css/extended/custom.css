@@ -1,23 +1,80 @@
 /* Import Vazirmatn Font */
 @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
 
-/* Apply font to entire site */
+:root {
+  --blue-primary: #1e40af;
+  --blue-dark: #1e3a8a;
+  --blue-darker: #0f172a;
+  --blue-light: #3b82f6;
+  --blue-lighter: #60a5fa;
+  --orange: #f97316;
+  --text-dark: #1f2937;
+  --text-gray: #6b7280;
+  --bg-light: #f8fafc;
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  --radius: 1rem;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: 'Vazirmatn', sans-serif !important;
+  font-family: 'Vazirmatn', Tahoma, sans-serif !important;
+  direction: rtl;
+  text-align: right;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.8;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Vazirmatn', sans-serif !important;
-  font-weight: 700;
+a { text-decoration: none; color: inherit; }
+
+/* ===== HEADER ===== */
+.site-header {
+  background: linear-gradient(135deg, var(--blue-darker) 0%, var(--blue-dark) 100%);
+  padding: 1.2rem 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* Improve Persian text rendering */
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+.header-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
-/* Slider Styles */
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.main-nav a {
+  color: rgba(255,255,255,0.9);
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.main-nav a:hover, .main-nav a.active {
+  color: white;
+  background: rgba(255,255,255,0.15);
+}
+
+/* ===== SLIDER ===== */
 .hero-slider {
   position: relative;
   height: 500px;
@@ -36,16 +93,16 @@ html {
 
 .slide {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out;
 }
 
 .slide.active {
   opacity: 1;
+  visibility: visible;
 }
 
 .slide img {
@@ -62,7 +119,6 @@ html {
   background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
   padding: 3rem;
   color: white;
-  z-index: 2;
 }
 
 .slider-title {
@@ -78,7 +134,6 @@ html {
   transform: translateX(-50%);
   display: flex;
   gap: 0.5rem;
-  z-index: 3;
 }
 
 .dot {
@@ -86,9 +141,8 @@ html {
   height: 12px;
   border-radius: 50%;
   background: rgba(255,255,255,0.5);
-  cursor: pointer;
-  transition: all 0.3s;
   border: none;
+  cursor: pointer;
 }
 
 .dot.active {
@@ -109,39 +163,99 @@ html {
   border-radius: 50%;
   font-size: 1.5rem;
   cursor: pointer;
-  z-index: 3;
+}
+
+.slider-arrow.prev { right: 2rem; }
+.slider-arrow.next { left: 2rem; }
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 4rem 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--blue-dark);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.card-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: linear-gradient(135deg, var(--blue-darker) 0%, #0a0f1c 100%);
+  color: white;
+  padding: 4rem 0 2rem;
+  margin-top: 4rem;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--blue-lighter);
+}
+
+.footer-column ul { list-style: none; }
+.footer-column li { margin-bottom: 0.75rem; }
+.footer-column a {
+  color: rgba(255,255,255,0.8);
   transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.slider-arrow:hover {
-  background: rgba(255,255,255,0.5);
+.footer-column a:hover {
+  color: var(--blue-lighter);
+  transform: translateX(-5px);
 }
 
-.slider-arrow.prev {
-  right: 2rem;
-}
-
-.slider-arrow.next {
-  left: 2rem;
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 3rem;
+  padding-top: 2rem;
+  text-align: center;
+  color: rgba(255,255,255,0.6);
 }
 
 @media (max-width: 768px) {
-  .hero-slider {
-    height: 300px;
-  }
-  
-  .slider-title {
-    font-size: 1.5rem;
-  }
-  
-  .slider-overlay {
-    padding: 1.5rem;
-  }
+  .cards-grid, .footer-inner { grid-template-columns: 1fr; }
+  .hero-slider { height: 300px; }
+  .main-nav ul { flex-wrap: wrap; gap: 0.5rem; }
 }
-CSSEOF
-
-echo "✅ CSS اسلایدر اضافه شد!"
-EOF
