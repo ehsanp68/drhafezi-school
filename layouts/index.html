@@ -1,19 +1,19 @@
 {{ define "main" }}
 
-<!-- Hero Slider -->
+<!-- Hero Slider با Lazy Loading -->
 <section class="hero-slider" id="heroSlider">
   <div class="slider-container">
     <div class="slide active">
-      <img src="/images/slider/slide1.png" alt="اسلاید ۱">
+      <img src="/images/slider/slide1.png" alt="اسلاید ۱" loading="eager" fetchpriority="high">
     </div>
     <div class="slide">
-      <img src="/images/slider/slide2.png" alt="اسلاید ۲">
+      <img src="/images/slider/slide2.png" alt="اسلاید ۲" loading="lazy">
     </div>
     <div class="slide">
-      <img src="/images/slider/slide3.png" alt="اسلاید ۳">
+      <img src="/images/slider/slide3.png" alt="اسلاید ۳" loading="lazy">
     </div>
     <div class="slide">
-      <img src="/images/slider/slide4.png" alt="اسلاید ۴">
+      <img src="/images/slider/slide4.png" alt="اسلاید ۴" loading="lazy">
     </div>
   </div>
   
@@ -34,18 +34,17 @@
 
 <!-- News Ticker -->
 <div class="news-ticker">
-  <span class="ticker-label">📢 سخن  بزرگان</span>
+  <span class="ticker-label">📢 اخبار فوری</span>
   <div class="ticker-content">
     <span class="ticker-text">
-        هر که در کودکی نیاموزد، در بزرگی پیشرفت نمی کند.  حضرت علی  علیه السلام&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      📚  طلب دانش بر هر مسلمانى واجب است. خداوند جويندگان دانش را دوست دارد.  رسول اکرم (ص) &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      🏆 انسان بلند مرتبه چون به فهم و دانايى رسد، متواضع مى شود.
- حضرت علی علیه السلام
+      🎉 مراسم تودیع و معارفه اعضای هیئت‌مدیره با حضور مدیرعامل محترم &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+       ثبت‌نام کلاس‌های فوق‌برنامه نیم‌سال دوم آغاز شد &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      🏆 کسب رتبه اول المپیاد ریاضی توسط دانش‌آموزان پایه ششم
     </span>
   </div>
 </div>
 
-<!-- Sections -->
+<!-- Sections با Lazy Loading -->
 <section class="section">
   <div class="section-header">
     <h2>سرمایه انسانی</h2>
@@ -54,7 +53,7 @@
   
   <div class="cards-grid">
     <div class="card">
-      <img src="/images/human-resources/teachers.png" alt="معلمان" class="card-image">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=60" alt="معلمان" class="card-image" loading="lazy">
       <div class="card-content">
         <h3>معلمان برتر</h3>
         <p>کادری مجرب و متعهد در خدمت آموزش فرزندان شما</p>
@@ -62,7 +61,7 @@
     </div>
     
     <div class="card">
-      <img src="/images/human-resources/students.png" alt="دانش‌آموزان" class="card-image">
+      <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=400&q=60" alt="دانش‌آموزان" class="card-image" loading="lazy">
       <div class="card-content">
         <h3>دانش‌آموزان ممتاز</h3>
         <p>پرورش استعدادهای درخشان برای آینده‌ای روشن</p>
@@ -70,10 +69,10 @@
     </div>
     
     <div class="card">
-      <img src="/images/human-resources/classroom.png" alt="کلاس" class="card-image">
+      <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=400&q=60" alt="کلاس" class="card-image" loading="lazy">
       <div class="card-content">
-        <h3>فضای امن و شاداب</h3>
-        <p>محیط فیزیکی شاد، ایمن و متناسب با سن</p>
+        <h3>کلاس‌های هوشمند</h3>
+        <p>تجهیزات آموزشی مدرن و فناوری‌های نوین</p>
       </div>
     </div>
   </div>
@@ -84,7 +83,6 @@
 (function() {
   'use strict';
   
-  // Wait for DOM to be fully loaded
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initSlider);
   } else {
@@ -93,10 +91,7 @@
   
   function initSlider() {
     var slider = document.getElementById('heroSlider');
-    if (!slider) {
-      console.error('Slider not found!');
-      return;
-    }
+    if (!slider) return;
     
     var slides = slider.querySelectorAll('.slide');
     var dots = slider.querySelectorAll('.dot');
@@ -104,77 +99,45 @@
     var nextBtn = document.getElementById('nextBtn');
     var titleEl = document.getElementById('sliderTitle');
     
-    if (slides.length === 0) {
-      console.error('No slides found!');
-      return;
-    }
+    if (slides.length === 0) return;
     
     var currentSlide = 0;
     var titles = [
       'به دبستان پسرانه دکتر حافظی خوش آمدید',
-      'آموزش با کیفیت، آینده درخشان',
-      'یادگیری در محیطی شاد و امن',
-      'ثبت‌ نام سال تحصیلی جدید آغاز شد'
+      'کادری مجرب و متعهد در خدمت آموزش',
+      'محیطی شاد و پویا برای یادگیری',
+      'ثبت‌نام سال تحصیلی جدید آغاز شد'
     ];
     
     function showSlide(index) {
-      // Remove active from all
       for (var i = 0; i < slides.length; i++) {
         slides[i].classList.remove('active');
         dots[i].classList.remove('active');
       }
       
-      // Calculate correct index
       currentSlide = (index + slides.length) % slides.length;
       
-      // Add active to current
       slides[currentSlide].classList.add('active');
       dots[currentSlide].classList.add('active');
       
-      // Update title
       if (titleEl && titles[currentSlide]) {
         titleEl.textContent = titles[currentSlide];
       }
-      
-      console.log('Showing slide:', currentSlide + 1);
     }
     
-    function nextSlide() {
-      showSlide(currentSlide + 1);
-    }
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide - 1); }
     
-    function prevSlide() {
-      showSlide(currentSlide - 1);
-    }
-    
-    // Event listeners
-    if (nextBtn) {
-      nextBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        nextSlide();
-      });
-    }
-    
-    if (prevBtn) {
-      prevBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        prevSlide();
-      });
-    }
+    if (nextBtn) nextBtn.addEventListener('click', function(e) { e.preventDefault(); nextSlide(); });
+    if (prevBtn) prevBtn.addEventListener('click', function(e) { e.preventDefault(); prevSlide(); });
     
     for (var i = 0; i < dots.length; i++) {
       (function(index) {
-        dots[index].addEventListener('click', function(e) {
-          e.preventDefault();
-          showSlide(index);
-        });
+        dots[index].addEventListener('click', function(e) { e.preventDefault(); showSlide(index); });
       })(i);
     }
     
-    // Auto-play
     setInterval(nextSlide, 5000);
-    
-    console.log('Slider initialized with', slides.length, 'slides');
   }
 })();
 </script>

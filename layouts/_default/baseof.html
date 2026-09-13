@@ -4,7 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ .Title }} - دبستان دکتر حافظی</title>
-  {{ $styles := resources.Get "css/extended/custom.css" }}
+  
+  <!-- Preload مهم‌ترین منابع -->
+  <link rel="preload" href="/images/slider/slide1.png" as="image" fetchpriority="high">
+  <link rel="preload" href="/images/logo.png" as="image">
+  
+  <!-- DNS Prefetch برای سرورهای خارجی -->
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  
+  {{ $styles := resources.Get "css/extended/custom.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
 </head>
 <body>
