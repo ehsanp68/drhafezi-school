@@ -1,4 +1,4 @@
-/* Import Vazirmatn Font - از CDN ایرانی برای سرعت بیشتر */
+/* Import Vazirmatn Font */
 @font-face {
   font-family: 'Vazirmatn';
   src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Regular.woff2') format('woff2');
@@ -60,14 +60,23 @@ a { text-decoration: none; color: inherit; }
 
 .header-inner {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  gap: 2rem;
 }
 
-.site-logo { display: flex; align-items: center; gap: 1rem; }
+/* ✅ لوگو در سمت راست با position absolute */
+.site-logo {
+  position: absolute;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 
 .site-logo .logo-image {
   height: 70px;
@@ -77,7 +86,21 @@ a { text-decoration: none; color: inherit; }
   display: block;
 }
 
-.main-nav ul { display: flex; list-style: none; gap: 1.5rem; }
+/* ✅ منو در وسط */
+.main-nav {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
 
 .main-nav a {
   color: rgba(255,255,255,0.9);
@@ -85,6 +108,7 @@ a { text-decoration: none; color: inherit; }
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   transition: all 0.3s;
+  font-size: 0.95rem;
 }
 
 .main-nav a:hover, .main-nav a.active {
@@ -212,7 +236,15 @@ a { text-decoration: none; color: inherit; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
-  .header-inner { flex-direction: column; gap: 1rem; }
+  .header-inner {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .site-logo {
+    position: static;
+  }
+  
   .cards-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { grid-template-columns: repeat(2, 1fr); }
   .site-logo .logo-image { height: 60px; }
@@ -223,4 +255,9 @@ a { text-decoration: none; color: inherit; }
   .hero-slider { height: 300px; }
   .slider-title { font-size: 1.5rem; }
   .site-logo .logo-image { height: 50px; }
+  
+  .main-nav ul {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 }
