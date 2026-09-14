@@ -1,0 +1,233 @@
+{{ define "main" }}
+
+<section class="gallery-page">
+  <div class="container">
+    <!-- بنر صفحه -->
+    <div class="page-header gallery-header">
+      <div class="header-icon">📸</div>
+      <h1>گالری تصاویر</h1>
+      <p>نگاهی به فعالیت‌ها و لحظات زیبای مدرسه ما</p>
+    </div>
+
+    <!-- فیلتر دسته‌بندی -->
+    <div class="gallery-filter">
+      <button class="filter-btn active" data-filter="all">همه تصاویر</button>
+      <button class="filter-btn" data-filter="class">کلاس‌ها</button>
+      <button class="filter-btn" data-filter="event">رویدادها</button>
+      <button class="filter-btn" data-filter="activity">فعالیت‌ها</button>
+    </div>
+
+    <!-- گرید گالری -->
+    <div class="gallery-grid">
+      
+      <!-- تصویر ۱ -->
+      <div class="gallery-item" data-category="class">
+        <div class="gallery-image-wrapper">
+          <img src="/images/human-resources/classroom.png" alt="کلاس درس" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="overlay-content">
+              <span class="overlay-icon">🔍</span>
+              <h3>کلاس‌های پویا</h3>
+              <p>محیط آموزشی شاد و فعال</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- تصویر ۲ -->
+      <div class="gallery-item" data-category="activity">
+        <div class="gallery-image-wrapper">
+          <img src="/images/human-resources/students.png" alt="دانش‌آموزان" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="overlay-content">
+              <span class="overlay-icon"></span>
+              <h3>دانش‌آموزان ممتاز</h3>
+              <p>آینده‌سازان کشور</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- تصویر ۳ -->
+      <div class="gallery-item" data-category="class">
+        <div class="gallery-image-wrapper">
+          <img src="/images/human-resources/teachers.png" alt="معلمان" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="overlay-content">
+              <span class="overlay-icon">👨‍🏫</span>
+              <h3>معلمان دلسوز</h3>
+              <p>با عشق آموزش می‌دهند</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- تصویر ۴ -->
+      <div class="gallery-item featured" data-category="event">
+        <div class="gallery-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=70" alt="جشن مدرسه" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="overlay-content">
+              <span class="overlay-icon">🎉</span>
+              <h3>جشن‌های مدرسه</h3>
+              <p>لحظات شاد و به‌یادماندنی</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- تصویر ۵ -->
+      <div class="gallery-item" data-category="activity">
+        <div class="gallery-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=600&q=70" alt="فعالیت‌های آموزشی" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="overlay-content">
+              <span class="overlay-icon">📚</span>
+              <h3>فعالیت‌های آموزشی</h3>
+              <p>یادگیری با روش‌های نوین</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- تصویر ۶ -->
+      <div class="gallery-item" data-category="event">
+        <div class="gallery-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&q=70" alt="مراسم صبحگاه" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="overlay-content">
+              <span class="overlay-icon">🌅</span>
+              <h3>مراسم صبحگاه</h3>
+              <p>شروع روز با انرژی</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close">&times;</button>
+      <button class="lightbox-prev">❯</button>
+      <button class="lightbox-next">❮</button>
+      <div class="lightbox-content">
+        <img src="" alt="" id="lightbox-img">
+        <div class="lightbox-caption">
+          <h3 id="lightbox-title"></h3>
+          <p id="lightbox-desc"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  'use strict';
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGallery);
+  } else {
+    initGallery();
+  }
+  
+  function initGallery() {
+    // فیلتر دسته‌بندی
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var galleryItems = document.querySelectorAll('.gallery-item');
+    
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        
+        var filter = btn.getAttribute('data-filter');
+        
+        galleryItems.forEach(function(item) {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+            setTimeout(function() { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 50);
+          } else {
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.8)';
+            setTimeout(function() { item.style.display = 'none'; }, 300);
+          }
+        });
+      });
+    });
+    
+    // Lightbox
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    var lightboxTitle = document.getElementById('lightbox-title');
+    var lightboxDesc = document.getElementById('lightbox-desc');
+    var closeBtn = document.querySelector('.lightbox-close');
+    var prevBtn = document.querySelector('.lightbox-prev');
+    var nextBtn = document.querySelector('.lightbox-next');
+    var currentIndex = 0;
+    var visibleItems = [];
+    
+    function updateVisibleItems() {
+      visibleItems = Array.from(galleryItems).filter(function(item) {
+        return item.style.display !== 'none';
+      });
+    }
+    
+    function openLightbox(index) {
+      updateVisibleItems();
+      currentIndex = index;
+      var item = visibleItems[currentIndex];
+      var img = item.querySelector('img');
+      var title = item.querySelector('h3');
+      var desc = item.querySelector('p');
+      
+      lightboxImg.src = img.src;
+      lightboxTitle.textContent = title ? title.textContent : '';
+      lightboxDesc.textContent = desc ? desc.textContent : '';
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    function showNext() {
+      currentIndex = (currentIndex + 1) % visibleItems.length;
+      openLightbox(currentIndex);
+    }
+    
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+      openLightbox(currentIndex);
+    }
+    
+    galleryItems.forEach(function(item, index) {
+      item.addEventListener('click', function() {
+        updateVisibleItems();
+        var visibleIndex = visibleItems.indexOf(item);
+        openLightbox(visibleIndex);
+      });
+    });
+    
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    if (nextBtn) nextBtn.addEventListener('click', function(e) { e.stopPropagation(); showNext(); });
+    if (prevBtn) prevBtn.addEventListener('click', function(e) { e.stopPropagation(); showPrev(); });
+    
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showNext();
+      if (e.key === 'ArrowRight') showPrev();
+    });
+  }
+})();
+</script>
+
+{{ end }}
