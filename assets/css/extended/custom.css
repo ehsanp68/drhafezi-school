@@ -7,14 +7,15 @@
   --blue-darker: #0f172a;
   --blue-light: #3b82f6;
   --blue-lighter: #60a5fa;
-  --blue-glow: rgba(59, 130, 246, 0.5);
   --orange: #f97316;
   --orange-light: #fb923c;
+  --pink: #ec4899;
+  --green: #10b981;
+  --purple: #8b5cf6;
   --text-dark: #1f2937;
   --text-gray: #6b7280;
   --bg-light: #f8fafc;
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
   --radius: 1rem;
 }
 
@@ -32,141 +33,120 @@ body {
 
 a { text-decoration: none; color: inherit; }
 
-/* ===== HEADER با افکت شیشه‌ای ===== */
+/* ===== HEADER با منوی عمودی در سمت راست ===== */
 .site-header {
-  background: linear-gradient(135deg, var(--blue-darker) 0%, var(--blue-dark) 50%, var(--blue-primary) 100%);
-  padding: 0;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.2);
-  position: sticky;
+  background: linear-gradient(135deg, var(--blue-darker) 0%, var(--blue-dark) 100%);
+  position: fixed;
   top: 0;
+  right: 0;
+  width: 200px;
+  height: 100vh;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.2);
   z-index: 100;
-  backdrop-filter: blur(10px);
-  border-bottom: 2px solid rgba(255,255,255,0.1);
+  overflow-y: auto;
 }
 
-.header-inner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem;
+.header-container {
+  padding: 2rem 1rem;
 }
 
-/* ===== منوی اصلی با افکت‌های زیبا ===== */
-.main-nav {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.main-nav ul {
-  display: flex;
+/* ===== منوی عمودی با آیکون‌های گرد و رنگارنگ ===== */
+.side-nav ul {
   list-style: none;
-  gap: 0.5rem;
-  justify-content: center;
-  padding: 0.8rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.main-nav li {
+.side-nav li {
   position: relative;
 }
 
-.main-nav a {
-  position: relative;
+.side-nav a {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: rgba(255,255,255,0.85);
+  gap: 0.8rem;
+  padding: 1rem;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: rgba(255,255,255,0.9);
   font-weight: 500;
-  padding: 0.7rem 1.3rem;
-  border-radius: 12px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   font-size: 0.95rem;
-  overflow: hidden;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
 }
 
-/* آیکون منو */
+/* آیکون‌های گرد با رنگ‌های کودکانه */
 .nav-icon {
-  font-size: 1.1rem;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
   transition: all 0.3s ease;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.nav-text {
-  position: relative;
-  z-index: 2;
+/* رنگ‌های مختلف برای هر آیکون */
+.side-nav li:nth-child(1) .nav-icon {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
 }
 
-/* افکت hover - گرادیان متحرک */
-.main-nav a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s ease;
-  z-index: 1;
+.side-nav li:nth-child(2) .nav-icon {
+  background: linear-gradient(135deg, #34d399, #10b981);
 }
 
-.main-nav a:hover::before {
-  left: 100%;
+.side-nav li:nth-child(3) .nav-icon {
+  background: linear-gradient(135deg, #f472b6, #ec4899);
 }
 
-/* افکت hover اصلی */
-.main-nav a:hover {
-  color: white;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(96, 165, 250, 0.2));
-  border-color: rgba(255,255,255,0.2);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+.side-nav li:nth-child(4) .nav-icon {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
 }
 
-.main-nav a:hover .nav-icon {
-  transform: scale(1.2) rotate(-10deg);
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+.side-nav li:nth-child(5) .nav-icon {
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6);
 }
 
-/* آیتم فعال - با گرادیان و glow */
-.main-nav a.active {
-  color: white;
-  background: linear-gradient(135deg, var(--blue-light), var(--blue-primary));
+/* افکت hover */
+.side-nav a:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateX(-5px);
   border-color: rgba(255,255,255,0.3);
-  box-shadow: 0 4px 20px var(--blue-glow), 0 0 30px rgba(59, 130, 246, 0.3);
-  font-weight: 700;
 }
 
-.main-nav a.active .nav-icon {
+.side-nav a:hover .nav-icon {
+  transform: scale(1.15) rotate(-10deg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* آیتم فعال */
+.side-nav a.active {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(96, 165, 250, 0.2));
+  border-color: rgba(255,255,255,0.4);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+
+.side-nav a.active .nav-icon {
   animation: bounce 2s infinite;
 }
 
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
+  50% { transform: translateY(-5px); }
 }
 
-/* نشانگر پایین آیتم فعال */
-.nav-indicator {
-  position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--orange), var(--orange-light));
-  border-radius: 2px;
-  transition: width 0.3s ease;
+/* ===== محتوای اصلی (سمت چپ منو) ===== */
+body {
+  padding-right: 200px;
 }
 
-.main-nav a.active .nav-indicator {
-  width: 60%;
-}
-
-.main-nav a:hover .nav-indicator {
-  width: 40%;
+main {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* ===== SLIDER ===== */
@@ -174,8 +154,7 @@ a { text-decoration: none; color: inherit; }
   position: relative;
   height: 500px;
   overflow: hidden;
-  margin: 2rem auto;
-  max-width: 1400px;
+  margin: 2rem 0;
   border-radius: 1.5rem;
   box-shadow: var(--shadow);
   background: #000;
@@ -271,6 +250,55 @@ a { text-decoration: none; color: inherit; }
 .slider-arrow.prev { right: 2rem; }
 .slider-arrow.next { left: 2rem; }
 
+/* ===== اخبار فوری با باکس منظم و متحرک ===== */
+.news-ticker {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 2px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  overflow: hidden;
+}
+
+.ticker-label {
+  background: linear-gradient(135deg, var(--orange), var(--orange-light));
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ticker-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  height: 30px;
+}
+
+.ticker-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll 25s linear infinite;
+  color: var(--text-dark);
+  font-weight: 500;
+  line-height: 30px;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
 /* ===== SECTIONS ===== */
 .section {
   padding: 4rem 0;
@@ -299,7 +327,7 @@ a { text-decoration: none; color: inherit; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  padding: 0 2rem;
+  padding: 0;
 }
 
 .card {
@@ -312,7 +340,7 @@ a { text-decoration: none; color: inherit; }
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
 }
 
 .card-image {
@@ -340,14 +368,13 @@ a { text-decoration: none; color: inherit; }
 .site-footer {
   background: linear-gradient(135deg, var(--blue-darker) 0%, #0a0f1c 100%);
   color: white;
-  padding: 4rem 0 2rem;
+  padding: 4rem 2rem 2rem;
   margin-top: 4rem;
 }
 
 .footer-inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
@@ -383,14 +410,20 @@ a { text-decoration: none; color: inherit; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
-  .main-nav ul {
-    flex-wrap: wrap;
-    gap: 0.3rem;
+  .site-header {
+    width: 100%;
+    height: auto;
+    position: relative;
   }
   
-  .main-nav a {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.85rem;
+  body {
+    padding-right: 0;
+  }
+  
+  .side-nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .cards-grid, .footer-inner { grid-template-columns: repeat(2, 1fr); }
@@ -401,16 +434,14 @@ a { text-decoration: none; color: inherit; }
   .hero-slider { height: 300px; }
   .slider-title { font-size: 1.5rem; }
   
-  .main-nav ul {
-    gap: 0.2rem;
-  }
-  
-  .main-nav a {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.8rem;
+  .side-nav a {
+    padding: 0.8rem;
+    font-size: 0.85rem;
   }
   
   .nav-icon {
-    font-size: 0.9rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
   }
 }
