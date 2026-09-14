@@ -1,9 +1,17 @@
-/* Import Vazirmatn Font */
-@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+/* ===== فونت Digi Madasi ===== */
+@font-face {
+  font-family: 'DigiMadasi';
+  src: url('/fonts/Digi Madasi Bold (ver 1.1-2025).ttf') format('truetype'),
+       url('/fonts/Digi Madasi Bold (ver 1.1-2025).otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --blue-primary: #1e40af;
   --blue-dark: #1e3a8a;
+  --blue-darker: #0f172a;
   --blue-light: #3b82f6;
   --blue-lighter: #60a5fa;
   --orange: #f97316;
@@ -21,7 +29,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: 'Vazirmatn', Tahoma, sans-serif !important;
+  font-family: 'Lalezar', 'Vazirmatn', Tahoma, sans-serif !important;
   direction: rtl;
   text-align: right;
   background: var(--bg-light);
@@ -29,11 +37,18 @@ body {
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
   padding-right: 120px;
+  font-size: 1.1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lalezar', sans-serif !important;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 a { text-decoration: none; color: inherit; }
 
-/* ===== HEADER شفاف بدون بک‌گراند ===== */
+/* ===== HEADER ===== */
 .site-header {
   position: fixed;
   top: 0;
@@ -44,11 +59,7 @@ a { text-decoration: none; color: inherit; }
   background: transparent;
 }
 
-/* ===== منوی عمودی شفاف ===== */
-.side-nav {
-  padding: 3rem 0;
-}
-
+.side-nav { padding: 3rem 0; }
 .side-nav ul {
   list-style: none;
   display: flex;
@@ -71,13 +82,13 @@ a { text-decoration: none; color: inherit; }
   padding: 1rem 0.5rem;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   color: var(--text-gray);
-  font-weight: 500;
-  font-size: 0.85rem;
+  font-weight: 400;
+  font-size: 1rem;
   position: relative;
   width: 100%;
+  font-family: 'Lalezar', sans-serif !important;
 }
 
-/* Wrapper آیکون */
 .nav-icon-wrapper {
   width: 60px;
   height: 60px;
@@ -104,21 +115,15 @@ a { text-decoration: none; color: inherit; }
   transition: opacity 0.3s ease;
 }
 
-/* آیکون‌ها */
 .nav-icon {
-  font-size: 1.8rem;
+  width: 28px;
+  height: 28px;
+  color: var(--blue-primary);
   position: relative;
   z-index: 2;
   transition: all 0.3s ease;
 }
 
-.nav-text {
-  font-size: 0.85rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-/* افکت hover */
 .side-nav a:hover {
   color: var(--blue-primary);
   transform: scale(1.05);
@@ -126,7 +131,7 @@ a { text-decoration: none; color: inherit; }
 
 .side-nav a:hover .nav-icon-wrapper {
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.05);
 }
 
 .side-nav a:hover .nav-icon-wrapper::before {
@@ -137,10 +142,9 @@ a { text-decoration: none; color: inherit; }
   transform: scale(1.15);
 }
 
-/* آیتم فعال */
 .side-nav a.active {
   color: var(--blue-primary);
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .side-nav a.active .nav-icon-wrapper {
@@ -150,19 +154,14 @@ a { text-decoration: none; color: inherit; }
 }
 
 .side-nav a.active .nav-icon {
-  filter: brightness(0) invert(1);
+  color: white;
 }
 
 @keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-  }
-  50% {
-    box-shadow: 0 8px 35px rgba(59, 130, 246, 0.6);
-  }
+  0%, 100% { box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4); }
+  50% { box-shadow: 0 8px 35px rgba(59, 130, 246, 0.6); }
 }
 
-/* نشانگر آیتم فعال */
 .side-nav a.active::after {
   content: '';
   position: absolute;
@@ -175,11 +174,90 @@ a { text-decoration: none; color: inherit; }
   border-radius: 2px;
 }
 
-/* ===== محتوای اصلی ===== */
+.side-nav li:nth-child(1) .nav-icon { color: #3b82f6; }
+.side-nav li:nth-child(2) .nav-icon { color: #10b981; }
+.side-nav li:nth-child(3) .nav-icon { color: #f59e0b; }
+.side-nav li:nth-child(4) .nav-icon { color: #ec4899; }
+.side-nav li:nth-child(5) .nav-icon { color: #8b5cf6; }
+
 main {
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
+}
+
+/* ===== بنر خوش‌آمدگویی با فونت Digi Madasi ===== */
+.welcome-banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.8s ease-out;
+}
+
+.welcome-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.welcome-icon {
+  font-size: 4rem;
+  animation: bounce 2s infinite;
+}
+
+.welcome-text {
+  flex: 1;
+  text-align: center;
+}
+
+/* ✅ اعمال فونت Digi Madasi روی بنر */
+.welcome-text h1 {
+  font-size: 2.2rem;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  font-family: 'DigiMadasi', 'Lalezar', sans-serif !important;
+}
+
+.welcome-text p {
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.95);
+  font-family: 'DigiMadasi', 'Lalezar', sans-serif !important;
+}
+
+.welcome-decoration {
+  display: flex;
+  gap: 1rem;
+}
+
+.deco-star {
+  font-size: 2rem;
+  animation: twinkle 1.5s infinite;
+}
+
+.deco-star:nth-child(2) { animation-delay: 0.5s; }
+.deco-star:nth-child(3) { animation-delay: 1s; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
 }
 
 /* ===== SLIDER ===== */
@@ -231,8 +309,9 @@ main {
 
 .slider-title {
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 400;
   margin-bottom: 1rem;
+  font-family: 'Lalezar', sans-serif !important;
 }
 
 .slider-dots {
@@ -302,10 +381,11 @@ main {
   color: white;
   padding: 0.6rem 1.5rem;
   border-radius: 2rem;
-  font-weight: 700;
-  font-size: 0.95rem;
+  font-weight: 400;
+  font-size: 1.1rem;
   flex-shrink: 0;
   box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+  font-family: 'Lalezar', sans-serif !important;
 }
 
 .ticker-content {
@@ -320,8 +400,10 @@ main {
   white-space: nowrap;
   animation: scroll 25s linear infinite;
   color: var(--text-dark);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 30px;
+  font-family: 'Lalezar', sans-serif !important;
+  font-size: 1.1rem;
 }
 
 @keyframes scroll {
@@ -342,15 +424,17 @@ main {
 }
 
 .section-header h2 {
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 2.5rem;
+  font-weight: 400;
   color: var(--blue-dark);
   margin-bottom: 0.5rem;
+  font-family: 'Lalezar', sans-serif !important;
 }
 
 .section-header p {
   color: var(--text-gray);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-family: 'Lalezar', sans-serif !important;
 }
 
 .cards-grid {
@@ -384,14 +468,17 @@ main {
 }
 
 .card-content h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 400;
   color: var(--blue-dark);
   margin-bottom: 0.5rem;
+  font-family: 'Lalezar', sans-serif !important;
 }
 
 .card-content p {
   color: var(--text-gray);
+  font-size: 1.05rem;
+  font-family: 'Lalezar', sans-serif !important;
 }
 
 /* ===== FOOTER ===== */
@@ -411,10 +498,11 @@ main {
 }
 
 .footer-column h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 400;
   margin-bottom: 1.5rem;
   color: var(--blue-lighter);
+  font-family: 'Lalezar', sans-serif !important;
 }
 
 .footer-column ul { list-style: none; }
@@ -422,6 +510,8 @@ main {
 .footer-column a {
   color: rgba(255,255,255,0.8);
   transition: all 0.3s;
+  font-family: 'Lalezar', sans-serif !important;
+  font-size: 1.05rem;
 }
 
 .footer-column a:hover {
@@ -435,7 +525,8 @@ main {
   padding-top: 2rem;
   text-align: center;
   color: rgba(255,255,255,0.6);
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-family: 'Lalezar', sans-serif !important;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -455,10 +546,7 @@ main {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   }
   
-  .side-nav {
-    padding: 1rem 0;
-  }
-  
+  .side-nav { padding: 1rem 0; }
   .side-nav ul {
     flex-direction: row;
     flex-wrap: wrap;
@@ -477,7 +565,8 @@ main {
   }
   
   .nav-icon {
-    font-size: 1.4rem;
+    width: 22px;
+    height: 22px;
   }
   
   .cards-grid, .footer-inner { grid-template-columns: repeat(2, 1fr); }
@@ -486,244 +575,10 @@ main {
 @media (max-width: 768px) {
   .cards-grid, .footer-inner { grid-template-columns: 1fr; }
   .hero-slider { height: 300px; }
-  .slider-title { font-size: 1.5rem; }
-}
-
-/* ===== بنر خوش‌آمدگویی ===== */
-.welcome-banner {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 1.5rem;
-  padding: 2rem;
-  margin: 2rem 0;
-  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
-  position: relative;
-  overflow: hidden;
-  animation: slideIn 0.8s ease-out;
-}
-
-.welcome-banner::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  border-radius: 50%;
-}
-
-.welcome-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  position: relative;
-  z-index: 2;
-}
-
-.welcome-icon {
-  font-size: 4rem;
-  animation: bounce 2s infinite;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-}
-
-.welcome-text {
-  flex: 1;
-  text-align: center;
-}
-
-.welcome-text h1 {
-  font-size: 2rem;
-  font-weight: 800;
-  color: white;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
-
-.welcome-text p {
-  font-size: 1.2rem;
-  color: rgba(255,255,255,0.95);
-  font-weight: 600;
-}
-
-.welcome-decoration {
-  display: flex;
-  gap: 1rem;
-}
-
-.deco-star {
-  font-size: 2rem;
-  animation: twinkle 1.5s infinite;
-}
-
-.deco-star:nth-child(2) {
-  animation-delay: 0.5s;
-}
-
-.deco-star:nth-child(3) {
-  animation-delay: 1s;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes twinkle {
-  0%, 100% { 
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% { 
-    opacity: 0.6;
-    transform: scale(1.2);
-  }
-}
-
-/* ریسپانسیو بنر */
-@media (max-width: 768px) {
-  .welcome-content {
-    flex-direction: column;
-    text-align: center;
-  }
+  .slider-title { font-size: 1.8rem; }
   
-  .welcome-icon {
-    font-size: 3rem;
-  }
+  .welcome-text h1 { font-size: 1.5rem; }
+  .welcome-text p { font-size: 1rem; }
   
-  .welcome-text h1 {
-    font-size: 1.5rem;
-  }
-  
-  .welcome-text p {
-    font-size: 1rem;
-  }
-  
-  .welcome-decoration {
-    justify-content: center;
-  }
+  .section-header h2 { font-size: 2rem; }
 }
-cat >> assets/css/extended/custom.css << 'CSSEOF'
-
-/* ===== آیکون‌های SVG زیبا ===== */
-.nav-icon-wrapper {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: white;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  overflow: hidden;
-}
-
-.nav-icon-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--blue-light), var(--blue-primary));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.nav-icon {
-  width: 28px;
-  height: 28px;
-  color: var(--blue-primary);
-  position: relative;
-  z-index: 2;
-  transition: all 0.3s ease;
-}
-
-/* افکت hover */
-.side-nav a:hover .nav-icon-wrapper {
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
-  transform: translateY(-5px) scale(1.05);
-}
-
-.side-nav a:hover .nav-icon-wrapper::before {
-  opacity: 0.1;
-}
-
-.side-nav a:hover .nav-icon {
-  transform: scale(1.15);
-  color: var(--blue-dark);
-}
-
-/* آیتم فعال */
-.side-nav a.active .nav-icon-wrapper {
-  background: linear-gradient(135deg, var(--blue-light), var(--blue-primary));
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-  animation: pulse 2s infinite;
-}
-
-.side-nav a.active .nav-icon {
-  color: white;
-  stroke-width: 2.5;
-}
-
-/* انیمیشن چرخش ملایم برای آیکون فعال */
-@keyframes rotate {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-5deg); }
-  75% { transform: rotate(5deg); }
-}
-
-.side-nav a.active .nav-icon {
-  animation: rotate 3s ease-in-out infinite;
-}
-
-/* رنگ‌های متفاوت برای هر آیکون (اختیاری) */
-.side-nav li:nth-child(1) .nav-icon { color: #3b82f6; } /* آبی - خانه */
-.side-nav li:nth-child(2) .nav-icon { color: #10b981; } /* سبز - درباره ما */
-.side-nav li:nth-child(3) .nav-icon { color: #f59e0b; } /* نارنجی - اخبار */
-.side-nav li:nth-child(4) .nav-icon { color: #ec4899; } /* صورتی - گالری */
-.side-nav li:nth-child(5) .nav-icon { color: #8b5cf6; } /* بنفش - تماس */
-
-.side-nav li:nth-child(1).active .nav-icon,
-.side-nav li:nth-child(2).active .nav-icon,
-.side-nav li:nth-child(3).active .nav-icon,
-.side-nav li:nth-child(4).active .nav-icon,
-.side-nav li:nth-child(5).active .nav-icon {
-  color: white;
-}
-CSSEOF
-
-echo "✅ CSS آیکون‌های SVG به‌روز شد!"
-cat >> /workspaces/drhafezi-school/assets/css/extended/custom.css << 'CSSEOF'
-
-/* ===== فونت سفارشی فقط برای بنر خوش‌آمدگویی ===== */
-@font-face {
-  font-family: 'CustomSchoolFont';
-  src: url('/fonts/custom-font.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* اعمال فونت جدید فقط روی متن‌های بنر بالای سایت */
-.welcome-text h1,
-.welcome-text p {
-  font-family: 'CustomSchoolFont', 'Lalezar', sans-serif !important;
-  letter-spacing: 0.5px;
-}
-CSSEOF
-
-echo "✅ فونت سفارشی با موفقیت به بنر خوش‌آمدگویی اضافه شد!"
