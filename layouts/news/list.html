@@ -1,0 +1,234 @@
+{{ define "main" }}
+
+<section class="news-page">
+  <div class="container">
+    <!-- بنر صفحه -->
+    <div class="page-header news-header">
+      <div class="header-icon">📰</div>
+      <h1>اخبار و رویدادها</h1>
+      <p>آخرین رویدادها و دستاوردهای مدرسه ما را دنبال کنید</p>
+    </div>
+
+    <!-- فیلتر دسته‌بندی -->
+    <div class="news-filter">
+      <button class="filter-btn active" data-filter="all">همه اخبار</button>
+      <button class="filter-btn" data-filter="educational">آموزشی</button>
+      <button class="filter-btn" data-filter="sports">ورزشی</button>
+      <button class="filter-btn" data-filter="cultural">فرهنگی</button>
+      <button class="filter-btn" data-filter="camp">اردوها</button>
+    </div>
+
+    <!-- خبر ویژه -->
+    <div class="featured-news" data-category="educational">
+      <div class="featured-image">
+        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&q=70" alt="المپیاد ریاضی" loading="lazy">
+        <div class="featured-badge"> خبر ویژه</div>
+      </div>
+      <div class="featured-content">
+        <div class="news-meta">
+          <span class="news-category">آموزشی</span>
+          <span class="news-date">۲۲ شهریور ۱۴۰۵</span>
+        </div>
+        <h2>کسب رتبه اول المپیاد ریاضی توسط دانش‌آموزان پایه ششم</h2>
+        <p>دانش‌آموزان عزیز پایه ششم دبستان دکتر حافظی با تلاش و پشتکار فراوان، موفق به کسب رتبه اول المپیاد ریاضی در سطح منطقه شدند. این موفقیت بزرگ را به آنان تبریک می‌گوییم.</p>
+        <button class="read-more">
+          ادامه مطلب
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- گرید اخبار -->
+    <div class="news-grid">
+      
+      <!-- خبر ۱ -->
+      <article class="news-card" data-category="camp">
+        <div class="news-image">
+          <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=70" alt="اردوی تفریحی" loading="lazy">
+          <span class="news-category-badge">اردوها</span>
+        </div>
+        <div class="news-content">
+          <div class="news-meta">
+            <span class="news-date">۱۵ شهریور ۱۴۵</span>
+          </div>
+          <h3>اردوی تفریحی و آموزشی پایه پنجم</h3>
+          <p>دانش‌آموزان پایه پنجم در اردوی یک روزه به مقصد باغ پرندگان شرکت کردند و لحظات شادی را سپری نمودند.</p>
+          <button class="read-more-small">
+            ادامه مطلب
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- خبر ۲ -->
+      <article class="news-card" data-category="cultural">
+        <div class="news-image">
+          <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&q=70" alt="جشن بازگشایی" loading="lazy">
+          <span class="news-category-badge">فرهنگی</span>
+        </div>
+        <div class="news-content">
+          <div class="news-meta">
+            <span class="news-date">۱ شهریور ۱۴۰۵</span>
+          </div>
+          <h3>جشن بازگشایی مدارس و آغاز سال تحصیلی جدید</h3>
+          <p>مراسم باشکوه بازگشایی مدارس با حضور دانش‌آموزان، معلمان و اولیای گرامی برگزار شد.</p>
+          <button class="read-more-small">
+            ادامه مطلب
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- خبر ۳ -->
+      <article class="news-card" data-category="sports">
+        <div class="news-image">
+          <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&q=70" alt="مسابقات ورزشی" loading="lazy">
+          <span class="news-category-badge">ورزشی</span>
+        </div>
+        <div class="news-content">
+          <div class="news-meta">
+            <span class="news-date">۵ شهریور ۱۴۰۵</span>
+          </div>
+          <h3>مقام اول مسابقات فوتسال مدارس منطقه</h3>
+          <p>تیم فوتسال مدرسه با اقتدار کامل به مقام اول مسابقات دست یافت.</p>
+          <button class="read-more-small">
+            ادامه مطلب
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- خبر ۴ -->
+      <article class="news-card" data-category="educational">
+        <div class="news-image">
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=70" alt="کارگاه آموزشی" loading="lazy">
+          <span class="news-category-badge">آموزشی</span>
+        </div>
+        <div class="news-content">
+          <div class="news-meta">
+            <span class="news-date">۱ شهریور ۴۰۵</span>
+          </div>
+          <h3>کارگاه آموزشی روش‌های نوین تدریس برای معلمان</h3>
+          <p>کارگاه آموزشی با حضور اساتید برجسته برای ارتقای کیفیت آموزش برگزار شد.</p>
+          <button class="read-more-small">
+            ادامه مطلب
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- خبر ۵ -->
+      <article class="news-card" data-category="cultural">
+        <div class="news-image">
+          <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=600&q=70" alt="نمایشگاه کتاب" loading="lazy">
+          <span class="news-category-badge">فرهنگی</span>
+        </div>
+        <div class="news-content">
+          <div class="news-meta">
+            <span class="news-date">۲۵ مرداد ۱۴۰۵</span>
+          </div>
+          <h3>نمایشگاه کتاب و ترویج فرهنگ مطالعه</h3>
+          <p>نمایشگاه کتاب با حضور ناشران معتبر و بیش از ۵۰۰ عنوان کتاب برگزار شد.</p>
+          <button class="read-more-small">
+            ادامه مطلب
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- خبر ۶ -->
+      <article class="news-card" data-category="sports">
+        <div class="news-image">
+          <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&q=70" alt="مسابقات شنا" loading="lazy">
+          <span class="news-category-badge">ورزشی</span>
+        </div>
+        <div class="news-content">
+          <div class="news-meta">
+            <span class="news-date">۲ مرداد ۱۴۰۵</span>
+          </div>
+          <h3>مسابقات شنای دانش‌آموزان در استخر مدرسه</h3>
+          <p>مسابقات شنای بین کلاسی با حضور پرشور دانش‌آموزان برگزار شد.</p>
+          <button class="read-more-small">
+            ادامه مطلب
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- دکمه مشاهده بیشتر -->
+    <div class="load-more-container">
+      <button class="load-more-btn">
+        <span>مشاهده اخبار بیشتر</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  'use strict';
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNews);
+  } else {
+    initNews();
+  }
+  
+  function initNews() {
+    // فیلتر دسته‌بندی
+    var filterBtns = document.querySelectorAll('.news-filter .filter-btn');
+    var newsItems = document.querySelectorAll('.news-card, .featured-news');
+    
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        
+        var filter = btn.getAttribute('data-filter');
+        
+        newsItems.forEach(function(item) {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = '';
+            setTimeout(function() { 
+              item.style.opacity = '1'; 
+              item.style.transform = 'translateY(0)'; 
+            }, 50);
+          } else {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            setTimeout(function() { item.style.display = 'none'; }, 300);
+          }
+        });
+      });
+    });
+  }
+})();
+</script>
+
+{{ end }}
