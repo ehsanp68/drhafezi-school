@@ -1,4 +1,7 @@
-/* ===== فونت Digi Madasi ===== */
+/* Import فونت Lalezar */
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+
+/* ===== فونت Digi Madasi فقط برای بنر ===== */
 @font-face {
   font-family: 'DigiMadasi';
   src: url('/fonts/Digi Madasi Bold (ver 1.1-2025).ttf') format('truetype'),
@@ -28,8 +31,9 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* ✅ فونت Lalezar برای کل سایت */
 body {
-  font-family: 'Lalezar', 'Vazirmatn', Tahoma, sans-serif !important;
+  font-family: 'Lalezar', Tahoma, sans-serif !important;
   direction: rtl;
   text-align: right;
   background: var(--bg-light);
@@ -186,7 +190,7 @@ main {
   margin: 0 auto;
 }
 
-/* ===== بنر خوش‌آمدگویی با فونت Digi Madasi ===== */
+/* ===== بنر خوش‌آمدگویی با فونت Digi Madasi (بدون تغییر) ===== */
 .welcome-banner {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 1.5rem;
@@ -217,19 +221,19 @@ main {
   text-align: center;
 }
 
-/* ✅ اعمال فونت Digi Madasi روی بنر */
+/* ✅ فقط بنر با فونت Digi Madasi */
 .welcome-text h1 {
   font-size: 2.2rem;
   color: white;
   margin-bottom: 0.5rem;
   text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  font-family: 'DigiMadasi', 'Lalezar', sans-serif !important;
+  font-family: 'DigiMadasi', sans-serif !important;
 }
 
 .welcome-text p {
   font-size: 1.3rem;
   color: rgba(255,255,255,0.95);
-  font-family: 'DigiMadasi', 'Lalezar', sans-serif !important;
+  font-family: 'DigiMadasi', sans-serif !important;
 }
 
 .welcome-decoration {
