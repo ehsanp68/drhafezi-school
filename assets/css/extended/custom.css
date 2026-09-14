@@ -1773,3 +1773,756 @@ main {
     font-size: 1.05rem;
   }
 }
+
+/* ===== صفحه درباره ما ===== */
+.about-page {
+  padding: 2rem 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.about-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.about-header .header-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: bounce 2s infinite;
+}
+
+/* بخش معرفی */
+.about-intro {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: center;
+  margin: 3rem 0;
+  background: white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.intro-image {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.intro-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.intro-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: linear-gradient(135deg, var(--blue-light), var(--blue-primary));
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+
+.badge-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.badge-text {
+  font-size: 0.9rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.intro-content h2 {
+  font-size: 2rem;
+  color: var(--blue-dark);
+  margin-bottom: 1rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.intro-lead {
+  font-size: 1.15rem;
+  color: var(--blue-primary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-family: 'Lalezar', sans-serif !important;
+  line-height: 1.8;
+}
+
+.intro-content p {
+  color: var(--text-gray);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.intro-features {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
+  font-family: 'Lalezar', sans-serif !important;
+  color: var(--blue-primary);
+}
+
+.feature-icon {
+  font-size: 1.2rem;
+}
+
+/* آمار مدرسه */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.stat-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  border-top: 4px solid var(--blue-light);
+}
+
+.stat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.stat-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--blue-primary);
+  font-family: 'Lalezar', sans-serif !important;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--text-gray);
+  font-family: 'Lalezar', sans-serif !important;
+  font-size: 1rem;
+}
+
+/* پایه‌های تحصیلی */
+.about-grades {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.about-grades h2 {
+  font-size: 2.2rem;
+  color: var(--blue-dark);
+  margin-bottom: 0.5rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.about-grades > p {
+  color: var(--text-gray);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.grades-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.grade-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.grade-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.grade-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue-light), var(--blue-primary));
+}
+
+.grade-number {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--blue-light), var(--blue-primary));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 auto 1rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.grade-card h3 {
+  font-size: 1.3rem;
+  color: var(--blue-dark);
+  margin-bottom: 0.5rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.grade-card p {
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  font-family: 'Lalezar', sans-serif !important;
+  margin-bottom: 1rem;
+}
+
+.grade-icon {
+  font-size: 2.5rem;
+}
+
+/* ارزش‌ها */
+.about-values {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.about-values h2 {
+  font-size: 2.2rem;
+  color: var(--blue-dark);
+  margin-bottom: 0.5rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.about-values > p {
+  color: var(--text-gray);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.value-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.value-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.value-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.value-card h3 {
+  font-size: 1.3rem;
+  color: var(--blue-dark);
+  margin-bottom: 0.75rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.value-card p {
+  color: var(--text-gray);
+  line-height: 1.7;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+/* تیم آموزشی */
+.about-team {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.about-team h2 {
+  font-size: 2.2rem;
+  color: var(--blue-dark);
+  margin-bottom: 0.5rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.about-team > p {
+  color: var(--text-gray);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.team-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.team-avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--blue-light);
+}
+
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-card h3 {
+  font-size: 1.2rem;
+  color: var(--blue-dark);
+  margin-bottom: 0.5rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.team-role {
+  color: var(--blue-primary);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  font-family: 'Lalezar', sans-serif !important;
+  font-weight: 600;
+}
+
+.team-desc {
+  color: var(--text-gray);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+/* تاریخچه */
+.about-timeline {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.about-timeline h2 {
+  font-size: 2.2rem;
+  color: var(--blue-dark);
+  margin-bottom: 0.5rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.about-timeline > p {
+  color: var(--text-gray);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 50%;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--blue-light), var(--blue-primary));
+  transform: translateX(50%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.timeline-dot {
+  width: 20px;
+  height: 20px;
+  background: var(--blue-primary);
+  border-radius: 50%;
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 2;
+  box-shadow: 0 0 0 4px white, 0 0 0 8px var(--blue-light);
+}
+
+.timeline-item.current .timeline-dot {
+  background: var(--orange);
+  box-shadow: 0 0 0 4px white, 0 0 0 8px var(--orange-light);
+  animation: pulse 2s infinite;
+}
+
+.timeline-content {
+  width: 45%;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  text-align: right;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  text-align: left;
+}
+
+.timeline-year {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--blue-primary);
+  margin-bottom: 0.5rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.timeline-content h3 {
+  font-size: 1.2rem;
+  color: var(--blue-dark);
+  margin-bottom: 0.5rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.timeline-content p {
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+/* پیام مدیر */
+.about-message {
+  margin: 4rem 0;
+  background: linear-gradient(135deg, var(--blue-dark), var(--blue-primary));
+  border-radius: 1.5rem;
+  padding: 3rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-message::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.message-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quote-icon {
+  font-size: 5rem;
+  opacity: 0.3;
+  margin-bottom: -2rem;
+  font-family: serif;
+}
+
+.message-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.message-text {
+  font-size: 1.2rem;
+  line-height: 2;
+  margin-bottom: 2rem;
+  font-family: 'Lalezar', sans-serif !important;
+  font-style: italic;
+}
+
+.message-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: right;
+}
+
+.author-avatar {
+  font-size: 3rem;
+}
+
+.message-author strong {
+  display: block;
+  font-size: 1.1rem;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+.message-author span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-family: 'Lalezar', sans-serif !important;
+}
+
+/* ===== ریسپانسیو صفحه درباره ما ===== */
+@media (max-width: 992px) {
+  .about-intro {
+    grid-template-columns: 1fr;
+  }
+  
+  .intro-image img {
+    height: 300px;
+  }
+  
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grades-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 1rem 0.5rem;
+    padding-bottom: 100px;
+  }
+  
+  .about-header {
+    padding: 1.5rem 1rem;
+  }
+  
+  .about-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .about-header p {
+    font-size: 1rem;
+  }
+  
+  .about-header .header-icon {
+    font-size: 2.5rem;
+  }
+  
+  .about-intro {
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .intro-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .intro-lead {
+    font-size: 1rem;
+  }
+  
+  .intro-features {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .stat-card {
+    padding: 1.5rem;
+  }
+  
+  .stat-icon {
+    font-size: 2.5rem;
+  }
+  
+  .stat-number {
+    font-size: 2.2rem;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+  }
+  
+  .about-grades,
+  .about-values,
+  .about-team,
+  .about-timeline {
+    margin: 2rem 0;
+  }
+  
+  .about-grades h2,
+  .about-values h2,
+  .about-team h2,
+  .about-timeline h2 {
+    font-size: 1.6rem;
+  }
+  
+  .grades-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .grade-card {
+    padding: 1.5rem;
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .team-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* تاریخچه در موبایل */
+  .timeline::before {
+    right: 20px;
+    transform: none;
+  }
+  
+  .timeline-item,
+  .timeline-item:nth-child(odd) {
+    flex-direction: row;
+  }
+  
+  .timeline-dot {
+    right: 20px;
+    transform: translateX(50%);
+  }
+  
+  .timeline-content,
+  .timeline-item:nth-child(odd) .timeline-content {
+    width: calc(100% - 60px);
+    margin-right: 60px;
+    text-align: right;
+  }
+  
+  .about-message {
+    padding: 2rem 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .message-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .message-text {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  
+  .message-author {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-card {
+    padding: 1.25rem;
+  }
+  
+  .intro-image img {
+    height: 250px;
+  }
+  
+  .badge-number {
+    font-size: 1.5rem;
+  }
+}
