@@ -707,3 +707,23 @@ cat >> assets/css/extended/custom.css << 'CSSEOF'
 CSSEOF
 
 echo "✅ CSS آیکون‌های SVG به‌روز شد!"
+cat >> /workspaces/drhafezi-school/assets/css/extended/custom.css << 'CSSEOF'
+
+/* ===== فونت سفارشی فقط برای بنر خوش‌آمدگویی ===== */
+@font-face {
+  font-family: 'CustomSchoolFont';
+  src: url('/fonts/custom-font.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* اعمال فونت جدید فقط روی متن‌های بنر بالای سایت */
+.welcome-text h1,
+.welcome-text p {
+  font-family: 'CustomSchoolFont', 'Lalezar', sans-serif !important;
+  letter-spacing: 0.5px;
+}
+CSSEOF
+
+echo "✅ فونت سفارشی با موفقیت به بنر خوش‌آمدگویی اضافه شد!"
