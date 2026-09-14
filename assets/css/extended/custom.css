@@ -2526,3 +2526,71 @@ main {
     font-size: 1.5rem;
   }
 }
+
+/* ===== استایل جدید آیکون‌های تیم آموزشی ===== */
+.team-icon-wrapper {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.team-icon-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  opacity: 0.15;
+}
+
+.team-emoji {
+  font-size: 3.5rem;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+/* رنگ‌های متفاوت برای هر کارت */
+.team-icon-wrapper.management {
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.team-icon-wrapper.education {
+  background: linear-gradient(135deg, #10b981, #047857);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+}
+
+.team-icon-wrapper.guidance {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+}
+
+.team-icon-wrapper.teachers {
+  background: linear-gradient(135deg, #ec4899, #be185d);
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.3);
+}
+
+/* افکت hover */
+.team-card:hover .team-icon-wrapper {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.team-card:hover .team-emoji {
+  transform: scale(1.15);
+}
+
+/* مخفی کردن تصاویر قدیمی (اگر هنوز وجود داشته باشند) */
+.team-avatar {
+  display: none;
+}
