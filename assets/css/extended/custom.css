@@ -488,3 +488,129 @@ main {
   .hero-slider { height: 300px; }
   .slider-title { font-size: 1.5rem; }
 }
+
+/* ===== بنر خوش‌آمدگویی ===== */
+.welcome-banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.8s ease-out;
+}
+
+.welcome-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.welcome-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.welcome-icon {
+  font-size: 4rem;
+  animation: bounce 2s infinite;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+.welcome-text {
+  flex: 1;
+  text-align: center;
+}
+
+.welcome-text h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.welcome-text p {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.95);
+  font-weight: 600;
+}
+
+.welcome-decoration {
+  display: flex;
+  gap: 1rem;
+}
+
+.deco-star {
+  font-size: 2rem;
+  animation: twinkle 1.5s infinite;
+}
+
+.deco-star:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.deco-star:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+/* ریسپانسیو بنر */
+@media (max-width: 768px) {
+  .welcome-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .welcome-icon {
+    font-size: 3rem;
+  }
+  
+  .welcome-text h1 {
+    font-size: 1.5rem;
+  }
+  
+  .welcome-text p {
+    font-size: 1rem;
+  }
+  
+  .welcome-decoration {
+    justify-content: center;
+  }
+}
