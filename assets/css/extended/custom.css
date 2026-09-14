@@ -31,7 +31,6 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ✅ فونت Lalezar برای کل سایت */
 body {
   font-family: 'Lalezar', Tahoma, sans-serif !important;
   direction: rtl;
@@ -52,7 +51,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a { text-decoration: none; color: inherit; }
 
-/* ===== HEADER ===== */
+/* ===== HEADER دسکتاپ ===== */
 .site-header {
   position: fixed;
   top: 0;
@@ -63,8 +62,8 @@ a { text-decoration: none; color: inherit; }
   background: transparent;
 }
 
-.side-nav { padding: 3rem 0; }
-.side-nav ul {
+.desktop-nav { padding: 3rem 0; }
+.desktop-nav ul {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -72,13 +71,13 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
 }
 
-.side-nav li {
+.desktop-nav li {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.side-nav a {
+.desktop-nav a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,36 +127,36 @@ a { text-decoration: none; color: inherit; }
   transition: all 0.3s ease;
 }
 
-.side-nav a:hover {
+.desktop-nav a:hover {
   color: var(--blue-primary);
   transform: scale(1.05);
 }
 
-.side-nav a:hover .nav-icon-wrapper {
+.desktop-nav a:hover .nav-icon-wrapper {
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
   transform: translateY(-5px) scale(1.05);
 }
 
-.side-nav a:hover .nav-icon-wrapper::before {
+.desktop-nav a:hover .nav-icon-wrapper::before {
   opacity: 0.1;
 }
 
-.side-nav a:hover .nav-icon {
+.desktop-nav a:hover .nav-icon {
   transform: scale(1.15);
 }
 
-.side-nav a.active {
+.desktop-nav a.active {
   color: var(--blue-primary);
   font-weight: 400;
 }
 
-.side-nav a.active .nav-icon-wrapper {
+.desktop-nav a.active .nav-icon-wrapper {
   background: linear-gradient(135deg, var(--blue-light), var(--blue-primary));
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
   animation: pulse 2s infinite;
 }
 
-.side-nav a.active .nav-icon {
+.desktop-nav a.active .nav-icon {
   color: white;
 }
 
@@ -166,7 +165,7 @@ a { text-decoration: none; color: inherit; }
   50% { box-shadow: 0 8px 35px rgba(59, 130, 246, 0.6); }
 }
 
-.side-nav a.active::after {
+.desktop-nav a.active::after {
   content: '';
   position: absolute;
   right: 0;
@@ -178,19 +177,93 @@ a { text-decoration: none; color: inherit; }
   border-radius: 2px;
 }
 
-.side-nav li:nth-child(1) .nav-icon { color: #3b82f6; }
-.side-nav li:nth-child(2) .nav-icon { color: #10b981; }
-.side-nav li:nth-child(3) .nav-icon { color: #f59e0b; }
-.side-nav li:nth-child(4) .nav-icon { color: #ec4899; }
-.side-nav li:nth-child(5) .nav-icon { color: #8b5cf6; }
+.desktop-nav li:nth-child(1) .nav-icon { color: #3b82f6; }
+.desktop-nav li:nth-child(2) .nav-icon { color: #10b981; }
+.desktop-nav li:nth-child(3) .nav-icon { color: #f59e0b; }
+.desktop-nav li:nth-child(4) .nav-icon { color: #ec4899; }
+.desktop-nav li:nth-child(5) .nav-icon { color: #8b5cf6; }
+
+/* ===== منوی موبایل (پایین صفحه) ===== */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  z-index: 100;
+  padding: 0.5rem 0;
+  border-top: 2px solid #f0f0f0;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav li {
+  flex: 1;
+}
+
+.mobile-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem;
+  color: var(--text-gray);
+  transition: all 0.3s ease;
+  font-family: 'Lalezar', sans-serif !important;
+  font-size: 0.75rem;
+}
+
+.mobile-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--text-gray);
+  transition: all 0.3s ease;
+}
+
+.mobile-text {
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+
+.mobile-nav a.active {
+  color: var(--blue-primary);
+}
+
+.mobile-nav a.active .mobile-icon {
+  color: var(--blue-primary);
+  transform: scale(1.1);
+}
+
+.mobile-nav a.active .mobile-text {
+  font-weight: 700;
+  color: var(--blue-primary);
+}
+
+.mobile-nav a:hover {
+  color: var(--blue-primary);
+}
+
+.mobile-nav a:hover .mobile-icon {
+  transform: scale(1.15);
+}
 
 main {
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
+  padding-bottom: 80px;
 }
 
-/* ===== بنر خوش‌آمدگویی با فونت Digi Madasi (بدون تغییر) ===== */
+/* ===== بنر خوش‌آمدگویی ===== */
 .welcome-banner {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 1.5rem;
@@ -221,7 +294,6 @@ main {
   text-align: center;
 }
 
-/* ✅ فقط بنر با فونت Digi Madasi */
 .welcome-text h1 {
   font-size: 2.2rem;
   color: white;
@@ -491,6 +563,7 @@ main {
   color: white;
   padding: 4rem 2rem 2rem;
   margin-top: 4rem;
+  margin-bottom: 70px;
 }
 
 .footer-inner {
@@ -533,44 +606,32 @@ main {
   font-family: 'Lalezar', sans-serif !important;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE - موبایل ===== */
 @media (max-width: 992px) {
   body {
     padding-right: 0;
-    padding-top: 80px;
+    padding-bottom: 70px;
+  }
+  
+  /* مخفی کردن منوی دسکتاپ */
+  .desktop-nav {
+    display: none;
+  }
+  
+  /* نمایش منوی موبایل */
+  .mobile-nav {
+    display: block;
   }
   
   .site-header {
     width: 100%;
     height: auto;
     position: fixed;
-    top: 0;
+    bottom: 0;
+    top: auto;
     right: 0;
     background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  }
-  
-  .side-nav { padding: 1rem 0; }
-  .side-nav ul {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
-  
-  .side-nav a {
-    flex-direction: row;
-    padding: 0.5rem 1rem;
-  }
-  
-  .nav-icon-wrapper {
-    width: 45px;
-    height: 45px;
-  }
-  
-  .nav-icon {
-    width: 22px;
-    height: 22px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
   }
   
   .cards-grid, .footer-inner { grid-template-columns: repeat(2, 1fr); }
@@ -584,5 +645,18 @@ main {
   .welcome-text h1 { font-size: 1.5rem; }
   .welcome-text p { font-size: 1rem; }
   
+  .welcome-icon { font-size: 3rem; }
+  
   .section-header h2 { font-size: 2rem; }
+  
+  .news-ticker {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .ticker-label {
+    width: 100%;
+    text-align: center;
+  }
 }
