@@ -684,3 +684,8 @@ main {
   .welcome-text p { font-size: 0.9rem; }
   .deco-star { font-size: 1.2rem; }
 }
+
+/* تغییر فونت فقط جمله سال تحصیلی به Lalezar */
+.welcome-text p {
+  font-family: 'Lalezar', sans-serif !important;
+}
