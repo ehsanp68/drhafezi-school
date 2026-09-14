@@ -1,131 +1,3 @@
-
-/* ===== بنر خوش‌آمدگویی - نسخه بهینه‌شده موبایل ===== */
-.welcome-banner {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 1.5rem;
-  padding: 2rem;
-  margin: 2rem 0;
-  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
-  position: relative;
-  overflow: hidden;
-  animation: slideIn 0.8s ease-out;
-}
-
-.welcome-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  position: relative;
-  z-index: 2;
-}
-
-.welcome-icon {
-  font-size: 4rem;
-  animation: bounce 2s infinite;
-  flex-shrink: 0;
-}
-
-.welcome-text {
-  flex: 1;
-  text-align: center;
-}
-
-.welcome-text h1 {
-  font-size: 2.2rem;
-  color: white;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  font-family: 'DigiMadasi', sans-serif !important;
-  line-height: 1.4;
-}
-
-.welcome-text p {
-  font-size: 1.3rem;
-  color: rgba(255,255,255,0.95);
-  font-family: 'DigiMadasi', sans-serif !important;
-  line-height: 1.6;
-}
-
-.welcome-decoration {
-  display: flex;
-  gap: 1rem;
-  flex-shrink: 0;
-}
-
-.deco-star {
-  font-size: 2rem;
-  animation: twinkle 1.5s infinite;
-}
-
-.deco-star:nth-child(2) { animation-delay: 0.5s; }
-.deco-star:nth-child(3) { animation-delay: 1s; }
-
-/* نسخه موبایل */
-@media (max-width: 768px) {
-  .welcome-banner {
-    margin: 1rem;
-    padding: 1.5rem 1rem;
-    border-radius: 1rem;
-  }
-  
-  .welcome-content {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .welcome-icon {
-    font-size: 3rem;
-    order: 1;
-  }
-  
-  .welcome-text {
-    order: 2;
-    width: 100%;
-  }
-  
-  .welcome-text h1 {
-    font-size: 1.4rem;
-    margin-bottom: 0.3rem;
-  }
-  
-  .welcome-text p {
-    font-size: 1rem;
-  }
-  
-  .welcome-decoration {
-    order: 3;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  
-  .deco-star {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .welcome-banner {
-    margin: 0.75rem;
-    padding: 1.25rem 0.75rem;
-  }
-  
-  .welcome-icon {
-    font-size: 2.5rem;
-  }
-  
-  .welcome-text h1 {
-    font-size: 1.2rem;
-  }
-  
-  .welcome-text p {
-    font-size: 0.9rem;
-  }
-  
-  .deco-star {
-    font-size: 1.2rem;
-  }
-}
 /* Import فونت Lalezar */
 @import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
 
@@ -159,6 +31,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* ✅ فونت Lalezar برای کل سایت */
 body {
   font-family: 'Lalezar', Tahoma, sans-serif !important;
   direction: rtl;
@@ -311,7 +184,7 @@ a { text-decoration: none; color: inherit; }
 .desktop-nav li:nth-child(4) .nav-icon { color: #ec4899; }
 .desktop-nav li:nth-child(5) .nav-icon { color: #8b5cf6; }
 
-/* ===== منوی موبایل (پایین صفحه) ===== */
+/* ===== منوی موبایل ===== */
 .mobile-nav {
   display: none;
   position: fixed;
@@ -334,9 +207,7 @@ a { text-decoration: none; color: inherit; }
   margin: 0;
 }
 
-.mobile-nav li {
-  flex: 1;
-}
+.mobile-nav li { flex: 1; }
 
 .mobile-nav a {
   display: flex;
@@ -391,7 +262,7 @@ main {
   padding-bottom: 80px;
 }
 
-/* ===== بنر خوش‌آمدگویی ===== */
+/* ===== بنر خوش‌آمدگویی با فونت Digi Madasi ===== */
 .welcome-banner {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 1.5rem;
@@ -415,6 +286,7 @@ main {
 .welcome-icon {
   font-size: 4rem;
   animation: bounce 2s infinite;
+  flex-shrink: 0;
 }
 
 .welcome-text {
@@ -422,23 +294,27 @@ main {
   text-align: center;
 }
 
+/* ✅ فقط بنر با فونت Digi Madasi */
 .welcome-text h1 {
   font-size: 2.2rem;
   color: white;
   margin-bottom: 0.5rem;
   text-shadow: 0 2px 10px rgba(0,0,0,0.2);
   font-family: 'DigiMadasi', sans-serif !important;
+  line-height: 1.4;
 }
 
 .welcome-text p {
   font-size: 1.3rem;
   color: rgba(255,255,255,0.95);
   font-family: 'DigiMadasi', sans-serif !important;
+  line-height: 1.6;
 }
 
 .welcome-decoration {
   display: flex;
   gap: 1rem;
+  flex-shrink: 0;
 }
 
 .deco-star {
@@ -734,22 +610,15 @@ main {
   font-family: 'Lalezar', sans-serif !important;
 }
 
-/* ===== RESPONSIVE - موبایل ===== */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
   body {
     padding-right: 0;
     padding-bottom: 70px;
   }
   
-  /* مخفی کردن منوی دسکتاپ */
-  .desktop-nav {
-    display: none;
-  }
-  
-  /* نمایش منوی موبایل */
-  .mobile-nav {
-    display: block;
-  }
+  .desktop-nav { display: none; }
+  .mobile-nav { display: block; }
   
   .site-header {
     width: 100%;
@@ -770,10 +639,25 @@ main {
   .hero-slider { height: 300px; }
   .slider-title { font-size: 1.8rem; }
   
-  .welcome-text h1 { font-size: 1.5rem; }
+  .welcome-banner {
+    margin: 1rem;
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+  }
+  
+  .welcome-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .welcome-icon { font-size: 3rem; order: 1; }
+  .welcome-text { order: 2; width: 100%; }
+  
+  .welcome-text h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
   .welcome-text p { font-size: 1rem; }
   
-  .welcome-icon { font-size: 3rem; }
+  .welcome-decoration { order: 3; justify-content: center; gap: 0.5rem; }
+  .deco-star { font-size: 1.5rem; }
   
   .section-header h2 { font-size: 2rem; }
   
@@ -789,73 +673,14 @@ main {
   }
 }
 
-/* ===== بهینه‌سازی بنر خوش‌آمدگویی برای موبایل ===== */
-@media (max-width: 768px) {
-  .welcome-banner {
-    margin: 1rem;
-    padding: 1.5rem 1rem;
-    border-radius: 1rem;
-  }
-  
-  .welcome-content {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
-  
-  .welcome-icon {
-    font-size: 3rem;
-    order: 1;
-  }
-  
-  .welcome-text {
-    order: 2;
-    width: 100%;
-  }
-  
-  .welcome-text h1 {
-    font-size: 1.4rem;
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-    text-align: center;
-  }
-  
-  .welcome-text p {
-    font-size: 1rem;
-    text-align: center;
-  }
-  
-  .welcome-decoration {
-    order: 3;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  
-  .deco-star {
-    font-size: 1.5rem;
-  }
-}
-
-/* بهبود نمایش در گوشی‌های کوچک */
 @media (max-width: 480px) {
   .welcome-banner {
     margin: 0.75rem;
     padding: 1.25rem 0.75rem;
   }
   
-  .welcome-icon {
-    font-size: 2.5rem;
-  }
-  
-  .welcome-text h1 {
-    font-size: 1.2rem;
-  }
-  
-  .welcome-text p {
-    font-size: 0.9rem;
-  }
-  
-  .deco-star {
-    font-size: 1.2rem;
-  }
+  .welcome-icon { font-size: 2.5rem; }
+  .welcome-text h1 { font-size: 1.2rem; }
+  .welcome-text p { font-size: 0.9rem; }
+  .deco-star { font-size: 1.2rem; }
 }
